@@ -1,10 +1,8 @@
 package com.Tests;
 
-import org.testng.annotations.Test;
-
 import com.Utilities.BaseClass;
 
-public class MutipleBrowser  {
+public class MutipleBrowser {
 	BaseClass base = new BaseClass();
 
 	@Test
