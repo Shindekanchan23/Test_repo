@@ -7,10 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -21,20 +17,20 @@ public class BaseClass {
 	public void OpenBrowser(String browser) {
 
 		switch (browser.toLowerCase()) {
-		case "chrome":
-			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
-			break;
-		case "firefox":
-			WebDriverManager.firefoxdriver().setup();
-			driver = new FirefoxDriver();
-			break;
-		case "edge":
-			WebDriverManager.edgedriver().setup();
-			driver = new EdgeDriver();
-			break;
-		default:
-			throw new IllegalArgumentException("unsupported browser" + browser);
+			case "chrome":
+				WebDriverManager.chromedriver().setup();
+				driver = new ChromeDriver();
+				break;
+			case "firefox":
+				WebDriverManager.firefoxdriver().setup();
+				driver = new FirefoxDriver();
+				break;
+			case "edge":
+				WebDriverManager.edgedriver().setup();
+				driver = new EdgeDriver();
+				break;
+			default:
+				throw new IllegalArgumentException("unsupported browser" + browser);
 		}
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(java.time.Duration.ofSeconds(10));
@@ -54,7 +50,7 @@ public class BaseClass {
 			} else {
 				String AppURL = prop.getProperty("BaseURL");
 				driver.get(AppURL);
-				System.out.println(driver.getCurrentUrl());	
+				System.out.println(driver.getCurrentUrl());
 
 			}
 
